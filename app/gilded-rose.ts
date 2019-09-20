@@ -36,6 +36,10 @@ let isCheese = function(item) {
 let decreaseSellIn = function(item) {
     item.sellIn -= 1;
 }
+
+let isExpired = function(item) {
+    return item.sellIn < 0;
+}
 let updateItems = function(item) {
     if(isLegendary(item)){
         return;
@@ -57,7 +61,7 @@ let updateItems = function(item) {
     else {
         decreaseQuality(item);
     }
-    if (item.sellIn < 0) {
+    if (isExpired(item)) {
         if (isCheese(item)) {
             increaseQuality(item);
             return;
@@ -82,6 +86,7 @@ export class GildedRose {
         return this.items;
     }
 }
+
 
 
 
