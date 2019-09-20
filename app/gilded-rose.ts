@@ -41,10 +41,7 @@ let updateItems = function(item) {
         return;
     }
     decreaseSellIn(item);
-    if (!(isCheese(item)) && !(isBackstage(item))) {
-        decreaseQuality(item);
-    }
-    else {
+    if (isCheese(item) ||  isBackstage(item)) {
         if (item.quality < MAX_LIMIT) {
             item.quality = item.quality + 1;
             if (isBackstage(item)) {
@@ -57,17 +54,20 @@ let updateItems = function(item) {
             }
         }
     }
+    else {
+        decreaseQuality(item);
+    }
     if (item.sellIn < 0) {
-        if (!(isCheese(item))) {
-            if (!(isBackstage(item))) {
-                decreaseQuality(item);
-            }
-            else {
-                item.quality -= item.quality;
-            }
+        if (isCheese(item)) {
+            increaseQuality(item);
         }
         else {
-            increaseQuality(item);
+            if (isBackstage(item)) {
+                item.quality -= item.quality;
+            }
+            else {
+                decreaseQuality(item);
+            }
         }
     }
 }
