@@ -30,11 +30,12 @@ let isCheese = function(item) {
 }
 
 let updateItems = function(item) {
+    if(isLegendary(item)){
+        return;
+    }
     if (!(isCheese(item)) && !(isBackstage(item))) {
         if (item.quality > MIN_LIMIT) {
-            if (!isLegendary(item)) {
                 item.quality -= 1;
-            }
         }
     }
     else {
@@ -50,16 +51,14 @@ let updateItems = function(item) {
             }
         }
     }
-    if (!(isLegendary(item))) {
-        item.sellIn -= 1;
-    }
+   
+    item.sellIn -= 1;
+
     if (item.sellIn < 0) {
         if (!(isCheese(item))) {
-            if (!(isLegendary(item))) {
+            if (!(isBackstage(item))) {
                 if (item.quality > MIN_LIMIT) {
-                    if (!(isLegendary(item))) {
                         item.quality -= 1;
-                    }
                 }
             }
             else {
