@@ -44,35 +44,37 @@ let updateItems = function(item) {
     if(isLegendary(item)){
         return;
     }
-    decreaseSellIn(item);
-    if (isCheese(item) ||  isBackstage(item)) {
-        if (item.quality < MAX_LIMIT) {
-            item.quality = item.quality + 1;
-            if (isBackstage(item)) {
-                if (item.sellIn < 10) {
-                    increaseQuality(item);
-                }
-                if (item.sellIn < 5) {
-                    increaseQuality(item);
-                }
-            }
-        }
-    }
-    else {
-        decreaseQuality(item);
-    }
-    if (isExpired(item)) {
-        if (isCheese(item)) {
+
+    if(isCheese(item)){
+        decreaseSellIn(item);
+        increaseQuality(item);
+        if (isExpired(item)) {
             increaseQuality(item);
-            return;
         }
-        if (isBackstage(item)) {
-            item.quality -= item.quality;
-            return;
+        return;
+    }
+    if (isBackstage(item)) {
+        decreaseSellIn(item);
+        increaseQuality(item);
+   
+        if (item.sellIn < 10) {
+            increaseQuality(item);
         }
-        
+        if (item.sellIn < 5) {
+            increaseQuality(item);
+        }   
+        if (isExpired(item)) {
+            item.quality -= item.quality; 
+        }
+        return;
+    }
+
+    decreaseSellIn(item);
+    decreaseQuality(item);
+    if (isExpired(item)) {
         decreaseQuality(item);
     }
+    
 }
 export class GildedRose {
     items: Array<Item>;
