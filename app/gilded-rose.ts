@@ -17,10 +17,22 @@ let increaseQuality = function(item) {
         item.quality += 1;
     }
 }
+let isLegendary = function(item) {
+    return item.name === 'Sulfuras, Hand of Ragnaros';
+}
+
+let isBackstage = function(item){
+    return item.name === 'Backstage passes to a TAFKAL80ETC concert';
+}
+
+let isCheese = function(item) {
+    return item.name === 'Aged Brie';
+}
+
 let updateItems = function(item) {
-    if (!(item.name === 'Aged Brie') && !(item.name === 'Backstage passes to a TAFKAL80ETC concert')) {
+    if (!(isCheese(item)) && !(isBackstage(item))) {
         if (item.quality > MIN_LIMIT) {
-            if (item.name != 'Sulfuras, Hand of Ragnaros') {
+            if (!isLegendary(item)) {
                 item.quality -= 1;
             }
         }
@@ -28,7 +40,7 @@ let updateItems = function(item) {
     else {
         if (item.quality < MAX_LIMIT) {
             item.quality = item.quality + 1;
-            if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
+            if (isBackstage(item)) {
                 if (item.sellIn < 11) {
                     increaseQuality(item);
                 }
@@ -38,14 +50,14 @@ let updateItems = function(item) {
             }
         }
     }
-    if (!(item.name === 'Sulfuras, Hand of Ragnaros')) {
+    if (!(isLegendary(item))) {
         item.sellIn -= 1;
     }
     if (item.sellIn < 0) {
-        if (!(item.name === 'Aged Brie')) {
-            if (!(item.name === 'Backstage passes to a TAFKAL80ETC concert')) {
+        if (!(isCheese(item))) {
+            if (!(isLegendary(item))) {
                 if (item.quality > MIN_LIMIT) {
-                    if (!(item.name === 'Sulfuras, Hand of Ragnaros')) {
+                    if (!(isLegendary(item))) {
                         item.quality -= 1;
                     }
                 }
@@ -71,6 +83,7 @@ export class GildedRose {
         return this.items;
     }
 }
+
 
 
 

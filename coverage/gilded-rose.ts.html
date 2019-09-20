@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.97% </span>
+        <span class="strong">68.09% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/39</span>
+        <span class='fraction'>32/47</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">27.78% </span>
+        <span class="strong">31.25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/36</span>
+        <span class='fraction'>10/32</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>9/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.76% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>21/37</span>
+        <span class='fraction'>30/45</span>
       </div>
     </div>
   </div>
@@ -116,7 +116,24 @@
 71
 72
 73
-74</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,6 +144,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -141,13 +178,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,8 +203,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,6 +218,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export class Item {
@@ -200,51 +234,65 @@
         this.quality = quality;
     }
 }
+const MIN_LIMIT = 0;
+const MAX_LIMIT = 50;
+&nbsp;
+let increaseQuality = <span class="fstat-no" title="function not covered" >function(</span>item) {
+<span class="cstat-no" title="statement not covered" >    if (item.quality &lt; MAX_LIMIT) {</span>
+<span class="cstat-no" title="statement not covered" >        item.quality += 1;</span>
+    }
+}
+let isLegendary = function(item) {
+    return item.name === 'Sulfuras, Hand of Ragnaros';
+}
+&nbsp;
+let isBackstage = function(item){
+    return item.name === 'Backstage passes to a TAFKAL80ETC concert';
+}
+&nbsp;
+let isCheese = function(item) {
+    return item.name === 'Aged Brie';
+}
+&nbsp;
 let updateItems = function(item) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (item.name != 'Aged Brie' &amp;&amp; item.name != 'Backstage passes to a TAFKAL80ETC concert') {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (item.quality &gt; 0) {
-<span class="cstat-no" title="statement not covered" >            if (item.name != 'Sulfuras, Hand of Ragnaros') {</span>
-<span class="cstat-no" title="statement not covered" >                item.quality = item.quality - 1;</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!(isCheese(item)) &amp;&amp; !(isBackstage(item))) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (item.quality &gt; MIN_LIMIT) {
+<span class="cstat-no" title="statement not covered" >            if (!isLegendary(item)) {</span>
+<span class="cstat-no" title="statement not covered" >                item.quality -= 1;</span>
             }
         }
     }
     else {
-<span class="cstat-no" title="statement not covered" >        if (item.quality &lt; 50) {</span>
+<span class="cstat-no" title="statement not covered" >        if (item.quality &lt; MAX_LIMIT) {</span>
 <span class="cstat-no" title="statement not covered" >            item.quality = item.quality + 1;</span>
-<span class="cstat-no" title="statement not covered" >            if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {</span>
+<span class="cstat-no" title="statement not covered" >            if (isBackstage(item)) {</span>
 <span class="cstat-no" title="statement not covered" >                if (item.sellIn &lt; 11) {</span>
-<span class="cstat-no" title="statement not covered" >                    if (item.quality &lt; 50) {</span>
-<span class="cstat-no" title="statement not covered" >                        item.quality = item.quality + 1;</span>
-                    }
+<span class="cstat-no" title="statement not covered" >                    increaseQuality(item);</span>
                 }
 <span class="cstat-no" title="statement not covered" >                if (item.sellIn &lt; 6) {</span>
-<span class="cstat-no" title="statement not covered" >                    if (item.quality &lt; 50) {</span>
-<span class="cstat-no" title="statement not covered" >                        item.quality = item.quality + 1;</span>
-                    }
+<span class="cstat-no" title="statement not covered" >                    increaseQuality(item);</span>
                 }
             }
         }
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (item.name != 'Sulfuras, Hand of Ragnaros') {
-        item.sellIn = item.sellIn - 1;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!(isLegendary(item))) {
+        item.sellIn -= 1;
     }
     <span class="missing-if-branch" title="else path not taken" >E</span>if (item.sellIn &lt; 0) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (item.name != 'Aged Brie') {
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
-                <span class="missing-if-branch" title="if path not taken" >I</span>if (item.quality &gt; 0) {
-<span class="cstat-no" title="statement not covered" >                    if (item.name != 'Sulfuras, Hand of Ragnaros') {</span>
-<span class="cstat-no" title="statement not covered" >                        item.quality = item.quality - 1;</span>
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!(isCheese(item))) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!(isLegendary(item))) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (item.quality &gt; MIN_LIMIT) {
+<span class="cstat-no" title="statement not covered" >                    if (!(isLegendary(item))) {</span>
+<span class="cstat-no" title="statement not covered" >                        item.quality -= 1;</span>
                     }
                 }
             }
             else {
-<span class="cstat-no" title="statement not covered" >                item.quality = item.quality - item.quality;</span>
+<span class="cstat-no" title="statement not covered" >                item.quality -= item.quality;</span>
             }
         }
         else {
-<span class="cstat-no" title="statement not covered" >            if (item.quality &lt; 50) {</span>
-<span class="cstat-no" title="statement not covered" >                item.quality = item.quality + 1;</span>
-            }
+<span class="cstat-no" title="statement not covered" >            increaseQuality(item);</span>
         }
     }
 }
@@ -262,13 +310,16 @@ export class GildedRose {
 }
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Sep 20 2019 23:50:12 GMT+0300 (Eastern European Summer Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 21 2019 00:14:44 GMT+0300 (Eastern European Summer Time)
 </div>
 </div>
 <script src="prettify.js"></script>
