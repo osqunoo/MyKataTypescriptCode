@@ -17,6 +17,11 @@ let increaseQuality = function(item) {
         item.quality += 1;
     }
 }
+let decreaseQuality  = function(item) {
+    if (item.quality > MIN_LIMIT) {
+        item.quality -= 1;
+    }
+}
 let isLegendary = function(item) {
     return item.name === 'Sulfuras, Hand of Ragnaros';
 }
@@ -34,9 +39,7 @@ let updateItems = function(item) {
         return;
     }
     if (!(isCheese(item)) && !(isBackstage(item))) {
-        if (item.quality > MIN_LIMIT) {
-                item.quality -= 1;
-        }
+        decreaseQuality(item);
     }
     else {
         if (item.quality < MAX_LIMIT) {
@@ -57,9 +60,7 @@ let updateItems = function(item) {
     if (item.sellIn < 0) {
         if (!(isCheese(item))) {
             if (!(isBackstage(item))) {
-                if (item.quality > MIN_LIMIT) {
-                        item.quality -= 1;
-                }
+                decreaseQuality(item);
             }
             else {
                 item.quality -= item.quality;
@@ -82,6 +83,8 @@ export class GildedRose {
         return this.items;
     }
 }
+
+
 
 
 
