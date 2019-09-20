@@ -11,6 +11,12 @@ export class Item {
 }
 const MIN_LIMIT = 0;
 const MAX_LIMIT = 50;
+
+let increaseQuality = function(item) {
+    if (item.quality < MAX_LIMIT) {
+        item.quality += 1;
+    }
+}
 let updateItems = function(item) {
     if (!(item.name === 'Aged Brie') && !(item.name === 'Backstage passes to a TAFKAL80ETC concert')) {
         if (item.quality > MIN_LIMIT) {
@@ -24,14 +30,10 @@ let updateItems = function(item) {
             item.quality = item.quality + 1;
             if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
                 if (item.sellIn < 11) {
-                    if (item.quality < MAX_LIMIT) {
-                        item.quality += 1;
-                    }
+                    increaseQuality(item);
                 }
                 if (item.sellIn < 6) {
-                    if (item.quality < MAX_LIMIT) {
-                        item.quality += 1;
-                    }
+                    increaseQuality(item);
                 }
             }
         }
@@ -53,9 +55,7 @@ let updateItems = function(item) {
             }
         }
         else {
-            if (item.quality < MAX_LIMIT) {
-                item.quality += 1;
-            }
+            increaseQuality(item);
         }
     }
 }
@@ -71,5 +71,7 @@ export class GildedRose {
         return this.items;
     }
 }
+
+
 
 
