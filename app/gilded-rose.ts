@@ -40,6 +40,13 @@ let decreaseSellIn = function(item) {
 let isExpired = function(item) {
     return item.sellIn < 0;
 }
+let NoramlUpdate = function(item){
+    decreaseSellIn(item);
+    decreaseQuality(item);
+    if (isExpired(item)) {
+        decreaseQuality(item);
+    }
+}
 let updateItems = function(item) {
     if(isLegendary(item)){
         return;
@@ -69,11 +76,7 @@ let updateItems = function(item) {
         return;
     }
 
-    decreaseSellIn(item);
-    decreaseQuality(item);
-    if (isExpired(item)) {
-        decreaseQuality(item);
-    }
+    NoramlUpdate(item);
     
 }
 export class GildedRose {
@@ -88,6 +91,8 @@ export class GildedRose {
         return this.items;
     }
 }
+
+
 
 
 
