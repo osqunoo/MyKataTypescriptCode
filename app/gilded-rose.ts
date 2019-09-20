@@ -60,15 +60,14 @@ let updateItems = function(item) {
     if (item.sellIn < 0) {
         if (isCheese(item)) {
             increaseQuality(item);
+            return;
         }
-        else {
-            if (isBackstage(item)) {
-                item.quality -= item.quality;
-            }
-            else {
-                decreaseQuality(item);
-            }
+        if (isBackstage(item)) {
+            item.quality -= item.quality;
+            return;
         }
+        
+        decreaseQuality(item);
     }
 }
 export class GildedRose {
