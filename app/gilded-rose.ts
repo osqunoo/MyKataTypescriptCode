@@ -47,33 +47,39 @@ let NoramlUpdate = function(item){
         decreaseQuality(item);
     }
 }
+let updateBackstage = function(item) {
+    decreaseSellIn(item);
+    increaseQuality(item);
+    if (item.sellIn < 10) {
+        increaseQuality(item);
+    }
+    if (item.sellIn < 5) {
+        increaseQuality(item);
+    }
+    if (isExpired(item)) {
+        item.quality -= item.quality;
+    }
+    return;
+}
+
+let updateCheese = function(item){
+    decreaseSellIn(item);
+    increaseQuality(item);
+    if (isExpired(item)) {
+        increaseQuality(item);
+    }
+    return;
+}
 let updateItems = function(item) {
     if(isLegendary(item)){
         return;
     }
 
     if(isCheese(item)){
-        decreaseSellIn(item);
-        increaseQuality(item);
-        if (isExpired(item)) {
-            increaseQuality(item);
-        }
-        return;
+        return updateCheese(item);
     }
     if (isBackstage(item)) {
-        decreaseSellIn(item);
-        increaseQuality(item);
-   
-        if (item.sellIn < 10) {
-            increaseQuality(item);
-        }
-        if (item.sellIn < 5) {
-            increaseQuality(item);
-        }   
-        if (isExpired(item)) {
-            item.quality -= item.quality; 
-        }
-        return;
+        return updateBackstage(item);
     }
 
     NoramlUpdate(item);
@@ -91,6 +97,8 @@ export class GildedRose {
         return this.items;
     }
 }
+
+
 
 
 
