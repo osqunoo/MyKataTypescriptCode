@@ -33,11 +33,14 @@ let isBackstage = function(item){
 let isCheese = function(item) {
     return item.name === 'Aged Brie';
 }
-
+let decreaseSellIn = function(item) {
+    item.sellIn -= 1;
+}
 let updateItems = function(item) {
     if(isLegendary(item)){
         return;
     }
+    decreaseSellIn(item);
     if (!(isCheese(item)) && !(isBackstage(item))) {
         decreaseQuality(item);
     }
@@ -45,18 +48,15 @@ let updateItems = function(item) {
         if (item.quality < MAX_LIMIT) {
             item.quality = item.quality + 1;
             if (isBackstage(item)) {
-                if (item.sellIn < 11) {
+                if (item.sellIn < 10) {
                     increaseQuality(item);
                 }
-                if (item.sellIn < 6) {
+                if (item.sellIn < 5) {
                     increaseQuality(item);
                 }
             }
         }
     }
-   
-    item.sellIn -= 1;
-
     if (item.sellIn < 0) {
         if (!(isCheese(item))) {
             if (!(isBackstage(item))) {
@@ -83,6 +83,8 @@ export class GildedRose {
         return this.items;
     }
 }
+
+
 
 
 
