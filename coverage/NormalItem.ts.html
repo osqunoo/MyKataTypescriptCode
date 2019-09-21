@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for Legendary.ts</title>
+    <title>Code coverage report for NormalItem.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> Legendary.ts
+      <a href="index.html">All files</a> NormalItem.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/7</span>
+        <span class='fraction'>7/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>1/3</span>
+        <span class='fraction'>1/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.55% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/6</span>
+        <span class='fraction'>6/11</span>
       </div>
     </div>
   </div>
@@ -51,21 +51,45 @@
 6
 7
 8
-9</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+9
+10
+11
+12
+13
+14
+15
+16
+17</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { ItemsFamily } from "./ItemsFamily";
-export class Legendary implements ItemsFamily {
-<span class="fstat-no" title="function not covered" >    public update(</span>item): void {
-<span class="cstat-no" title="statement not covered" >        item.name = 'Sulfuras, Hand of Ragnaros';</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { decreaseSellIn, isExpired, decreaseQuality } from "./operations";
+import { ItemsFamily } from "./ItemsFamily";
+export class NormalItem implements ItemsFamily {
+    public update(item): void {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(item != undefined){
+<span class="cstat-no" title="statement not covered" >            decreaseSellIn(item);</span>
+<span class="cstat-no" title="statement not covered" >            decreaseQuality(item);</span>
+<span class="cstat-no" title="statement not covered" >            if (isExpired(item)) {</span>
+<span class="cstat-no" title="statement not covered" >                decreaseQuality(item);</span>
+            }
+        }
+        
     }
 <span class="fstat-no" title="function not covered" >    public isUsefulFor(</span>item): boolean {
-<span class="cstat-no" title="statement not covered" >        return item.name === 'Sulfuras, Hand of Ragnaros';</span>
+<span class="cstat-no" title="statement not covered" >        return (item.name != 'Sulfuras, Hand of Ragnaros' &amp;&amp; item.name != 'Aged Brie' &amp;&amp; item.name != 'Backstage passes to a TAFKAL80ETC concert');</span>
     };
 }</pre></td></tr>
 </table></pre>

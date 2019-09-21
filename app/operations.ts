@@ -10,7 +10,7 @@ export const decreaseQuality = function (item) {
     }
 };
 export const decreaseSellIn = function (item) {
-    item.sellIn -= 1;
+        item.sellIn -= 1;
 };
 export const isExpired = function (item) {
     return item.sellIn < 0;
